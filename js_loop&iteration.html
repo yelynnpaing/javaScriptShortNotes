@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    //for loop
+    for (let i=0; i<10; i++){
+        console.log(i)
+    }
+
+    let majors = ['math', 'physics', 'bio', 123, 'eco', 24, 'history'];
+    // for(let i=0; i<majors.length; i++){
+    //     console.log(majors[i]);
+    // }
+
+    //while loop
+    // let i = 0;
+    // while (i<majors.length){
+    //     console.log(majors[i]);
+    //     i++
+    // }
+
+    //break and continue
+    for (let i=0; i<majors.length; i++){
+        if(typeof majors[i] !== "string") {continue};
+        console.log(majors[i])
+    }
+
+    //looping backward
+    for(let i = majors.length - 1; i >=0; i--){
+        console.log(majors[i])
+    }
+</script>
+</body>
+</html>

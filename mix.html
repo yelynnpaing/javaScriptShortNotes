@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let nums = [1,2,3,4,5];
+        let result = nums.map(function(n){
+            return n+2;
+        })
+        console.log(nums);
+        console.log (result);
+
+        let oddNumber = nums.filter(function(n){
+            return n%2;
+        })
+        console.log(oddNumber);
+        let evenNumber = nums.filter(function(n){
+            return ! (n % 2);
+        })
+        console.log (evenNumber);
+
+        let even = nums.map(n => n+1).filter(n => n % 2);
+        console.log (even);
+
+        let accumulativeValue = nums.map(n => n+1).reduce((a,n) =>a+n);
+        console.log (accumulativeValue);
+
+        let numbers = [123, 456];
+
+        //spread
+        let alphas = ['a', 'b', 'c'];
+        let spread = [...nums, ...alphas];
+        console.log(spread)
+
+        
+        let add = (a,b) => a+b;
+        
+        console.log(add(numbers[0],numbers[1]));
+        console.log(add(...numbers))
+
+        //destructuring
+        let [c,d] = numbers;
+        // function add2 ([c,d]) {
+        //     return c + d;
+        // }
+
+        let add3 = ([c,d]) => c+d;
+        console.log(add3(numbers));
+
+        let oddNumber2 = [1,3,5,7,9,11,7];
+        let result3 = oddNumber2.map(function(n){
+            if(n===7){
+                n+=10
+            }
+            return n;
+        })
+        console.log (result3);
+
+        let people = [
+            {name:"mg cho"},
+            {name:"mg mg", age:12 , gender:"m"},
+            {name:"mya mya", age:10 , gender:"F"},
+            {name:"kyaw kyaw", age:12 , gender:"M"},
+        ];
+
+        // let p = people.map(function(person){
+        //    if(person.gender){
+        //         if(person.gender ==="m"|| person.gender==="M"){
+        //             person.gender = "Male";
+        //         }if (person.gender==="f"|| person.gender==="F"){
+        //             person.gender = "Female";
+        //         }
+        //    }else{
+        //          person.gender= "Unknown"
+        //     }
+        //     return person;
+        // })
+
+        // let p = people.map(function(person){
+        //         if(person.gender ==="m"|| person.gender==="M"){
+        //             person.gender = "Male";
+        //         }else if (person.gender==="f"|| person.gender==="F"){
+        //             person.gender = "Female";
+        //         }else{
+        //          person.gender= "Unknown"
+        //     }
+        //     return person;
+        // })
+
+        let result4 = people.map(function(person){
+            switch(person.gender){
+                case "m":
+                case "M":
+                    person.gender="Male";
+                    break
+                case "f":
+                case "F":
+                    person.gender="Female";
+                    break
+                default:
+                    person.gender="Unknown"
+            }
+            return person
+        })
+        console.log(result4);
+
+        //For Object 
+        let people1 = {name:"mg mg", age:12, gender:"male"};
+        for(person in people1){
+            console.log(`${person} is ${people1[person]}`)
+        }
+
+        // class car  {
+        //     #hp = 150
+        //     color = "Color"
+        //     static info (){
+        //         console.log(`Horse Power is : ${this.#hp}`);
+
+        //     }
+        // }
+        
+        // let motor = new car();
+        // console.log(motor);
+        class calc {
+            static pi = 3.14
+            static add(a,b){
+                return a + b 
+            }
+        }
+        console.log(calc.pi);
+        console.log(calc.add(3,3));
+
+        class car {
+            #hp = 200
+            color = "Red"
+            carInfo(){
+                return `Engine power is ${this.#hp}`
+            }
+        }
+        let toyota = new car ();
+            toyota.hp = 100 ;
+        console.log(toyota.hp)
+        console.log(toyota.carInfo());
+
+        class animal {
+            constructor (name){
+                this.name = name;
+            }
+            run (){
+                return(`${this.name} is running....`)
+            }
+        }
+
+        let dog1 = new animal("Bobby");
+        
+        let dog2 = new animal ("Hoggy");
+        console.log(dog1.run());
+        console.log(dog2.run());
+
+        class dog extends animal {
+            bark(){
+                return `${this.name} bark : woff woff ....`
+            }
+        }
+
+        let milo = new dog ("milo");
+        console.log(milo.bark());
+    </script>
+</body>
+</html>

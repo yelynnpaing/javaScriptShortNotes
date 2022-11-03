@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    //this
+    let susu = {
+        name : 'su su',
+        work : 'student',
+        birthYear: 2000,
+        calculateAge: function (){
+            console.log(2022 - this.birthYear);
+            console.log(this)
+
+            function innerFunction (){
+                console.log(this)
+            }
+            innerFunction()
+        }
+    }
+    susu.calculateAge();
+
+    let nini = {
+        name : 'ni ni',
+        work : 'student',
+        birthYear : 2002,
+    }
+    nini.calculateAge = susu.calculateAge;
+    nini.calculateAge();
+
+</script>
+</body>
+</html>

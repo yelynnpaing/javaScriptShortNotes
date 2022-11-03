@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #result{
+            font-size: 2em;
+            font-weight: bolder;
+        }
+        label{
+            color: red;
+            display: none;
+        }
+        .groupA{
+            margin-top: 5px;
+        }
+        .groupB{
+            margin-top: 5px;
+        }
+        #sum{
+            margin-top: 7px;
+        }
+        .groupC{
+            margin-top: 5px;
+        }
+        #result{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="groupA">
+        <input type="text" id="a">
+        <label for="a">Insert Correctly Number</label>
+    </div>
+    <div class="groupB">
+        <input type="text" id="b">
+        <label for="b">Insert Correctly Number</label>
+    </div>
+    <button id="sum">Sum</button>
+    <div class="gourpC">
+        <input type="text" id="result">
+    </div>
+    <script>
+         document.querySelector("#a").onkeyup = function(){
+                let a = parseInt(document.querySelector("#a").value);
+                if(!isNaN(a)){
+                    document.querySelector("[for = a]").style.display = "none";
+                }
+            }
+            document.querySelector("#b").onkeyup = function (){
+                let b = parseInt(document.querySelector("#b").value);
+                if(!isNaN(b)){
+                    document.querySelector("[for = b]").style.display = "none";
+                }
+            }
+        document.querySelector("#sum").onclick = function(){
+            let a = parseInt(document.querySelector("#a").value);
+            let b = parseInt(document.querySelector("#b").value);
+            if(isNaN(a)){
+                document.querySelector("[for = a]").style.display = "inline";
+            }
+            if(isNaN(b)){
+                document.querySelector("[for = b]").style.display = "inline";
+            }
+            let preSum = a + b ;
+            if(!isNaN(preSum)){
+                document.querySelector("#result").value = preSum;
+            }
+        }
+
+    </script>
+</body>
+</html>

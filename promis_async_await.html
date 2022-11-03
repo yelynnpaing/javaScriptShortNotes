@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         console.log(1)
+        console.log(2)
+        setTimeout(() =>console.log(3),1000)
+        console.log(4)
+
+        function add1000(){
+            let result = 0;
+            for(let i = 1 ; i<=1000 ; i++){
+                //result 1 to 1000
+                // console.log(i)  
+                result += i
+            }
+            return result;
+        }
+        // console.log(add1000());
+
+        console.log("some process");
+        // console.log(add1000()); //nomal
+        // add1000Later().then(result => console.log(result)).catch(() =>console.log("Error")) //Promise
+        add1000Later(); //async and await
+        console.log("more process");
+
+        //Asynchronous
+        //sample
+        // function add1000Later(){ 
+        //     return new Promise (done => {
+        //        done(add1000())
+        //     })
+        // }
+        //Promise
+        // function add1000Later() {
+        //     return new Promise((resolve, reject) => {
+        //         let result = add1000();
+
+        //         if(result) resolve(result)
+        //         else reject()
+        //     })
+        // }
+
+        //aync and await
+        async function add1000Later(){
+            let result = await add1000();
+            console.log(result)
+        }
+
+        fetch("https://api.covid19api.com/summary")
+        .then (res => res.json())
+        .then (data => {
+            const global = data.Global
+            const allCountries = data.Countries
+            const myanmar = allCountries.find(c => c.Country === "Myanmar")
+            console.log("Global", global, "Myanmar:", myanmar)
+        })
+       
+        //async and await
+        async function covidInfo(){
+            const response = await fetch("https://api.covid19api.com/summary")
+            const data = await response.json()
+
+            const global = data.Global
+            const allCountries = data.Countries
+            const myanmar = allCountries.find(c => c.Country === "Myanmar")
+            console.log ("Global:", global, "Myanmar:", myanmar)
+        }
+        covidInfo()
+       
+       
+    </script>
+</body>
+</html>

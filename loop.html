@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="ul">
+
+    </ul>
+    <input type="text" id="input">
+    <label for="input"></label>
+    
+
+    <script>
+        let ul = document.querySelector(".ul");
+
+        let fruits = ["apple", "mango", "banana", "orange", "grape"];
+        
+        fruits.map(fruit =>{
+            let li = document.createElement("li");
+            li.textContent = fruit;
+            ul.appendChild(li)
+        })
+        
+
+        fetch("https://api.covid19api.com/summary")
+        .then(res => res.json())
+        .then(data =>{
+            console.info(data)
+            let global = data.Global
+            console.info(global)
+            let allCountries = data.Countries;
+            
+        })
+
+        console.time()
+
+        let input = document.querySelector("#input");
+        input.onkeyup = function(){
+            let count = input.value.length;
+            if(count){
+                document.querySelector("[for = input]").textContent = count
+            }
+        }
+
+        console.timeEnd()
+    </script>
+</body>
+</html>

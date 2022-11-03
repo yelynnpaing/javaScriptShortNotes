@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="pdf.js"></script>
+    <script type="text/javaScript">
+
+        function genPdf () {
+            var doc = new jsPDF();
+
+            doc.text(20, 20, 'Test Msg !!');
+            doc.addPage();
+            doc.text(20, 20, 'Test Message 2!');
+            doc.save('Test.pdf')
+        }
+    </script>
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+<button onclick="print()">Print</button>
+<a href="" download="">
+    <img src="codeChallagePics/changePasswordLogo.jpg" alt="">
+
+</a>
+<a href="javaScript:genPdf()">download pdf</a>
+<script>
+    
+    function Print (){
+        print()
+    }
+</script>
+
+    
+
+</body>
+</html>

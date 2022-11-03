@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        hello
+    </div>
+    <script>
+        /*
+            Questions ==>
+            For the first task, you have to create a simple function — chooseName() — 
+            that prints a random name from the provided array (names) to the provided paragraph (para), 
+            and then run it once.
+        */
+        const demo = document.getElementById("demo");
+        const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+        const para = document.createElement('p');
+         
+        function chooseName(){
+            const rNumber = Math.floor(Math.random() * names.length);
+            let paraText = document.createTextNode(`${names[rNumber]}`);
+                // console.log(rNumber)
+                para.append(paraText)
+                demo.appendChild(para)
+        }
+        // chooseName()
+        setInterval(clear, 1000)
+        setInterval(chooseName, 2000)
+        function clear (){
+            para.textContent = '';
+        }
+
+        // Don't edit the code below here!
+
+        section.innerHTML = ' ';
+        section.appendChild(para);
+    </script>
+</body>
+</html>

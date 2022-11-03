@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bill Calculating and Total</title>
+</head>
+<body>
+
+<script>
+    let billOne = 124 ;
+    let billTwo = 48 ;
+    let billThree = 268 ;
+    let x = " $";
+
+    let bill = '';
+    let tip = '';
+
+    function calculateTip (bill){
+        if(bill < 50){
+            tip = (20/100)*bill
+            return "tipMoney "+tip;
+        }else if (bill >= 50 && bill <=200){
+            tip = (15/100)*bill
+            return "tipMoney " + tip;
+        }else if (bill > 200){
+            tip = (10/100)*bill
+            return "tipMoney " + tip;
+        }
+    }
+
+    let arrOne = [calculateTip(124)+x, calculateTip(48)+x, calculateTip(268)+x] ;
+
+    function calculateTipNumber (bill){
+        if(bill < 50){
+            tip = (20/100)*bill
+            return tip;
+        }else if (bill >= 50 && bill <=200){
+            tip = (15/100)*bill
+            return tip;
+        }else if (bill > 200){
+            tip = (10/100)*bill
+            return tip;
+        }
+    }
+    let paidOne = "paidOne " + Number(billOne+calculateTipNumber(124));
+    let paidTwo = "paidTwo " + Number(billTwo+calculateTipNumber(48));
+    let paidThree = "paidThree " + Number(billThree+calculateTipNumber(268));
+
+    let arrTwo = [paidOne+x,paidTwo+x,paidThree+x];
+
+</script>
+</body>
+</html>
